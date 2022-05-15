@@ -18,3 +18,6 @@ to do
 
 # UX/UI 설계
 to do
+
+# ERD 설계
+to do
