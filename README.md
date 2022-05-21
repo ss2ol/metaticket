@@ -53,7 +53,7 @@
   - 결제 내역을 이메일로 전송한다.
 
 # UX/UI 설계
-to do
+https://ovenapp.io/project/9ke1DcKtgQjhFHKBUcqQ8RW39taDwhVR#1CVRg
 
 # ERD 설계
 https://www.erdcloud.com/d/TjXC5msmtJwNw5WRm
