@@ -6,7 +6,7 @@
 
 ## 기술 스택
 - front-end:
-- back-end
+- back-end: Java/spring boot
 - DB
 - DBMS
 - infra
