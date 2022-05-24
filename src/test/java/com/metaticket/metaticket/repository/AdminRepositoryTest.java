@@ -1,31 +1,33 @@
 package com.metaticket.metaticket.repository;
 
+import com.metaticket.metaticket.domain.Admin;
 import com.metaticket.metaticket.domain.Question;
-import com.metaticket.metaticket.repository.QuestionRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+
 @SpringBootTest
 @PropertySource("classpath:application.yml")
-class QuestionRepositoryTest {
+class AdminRepositoryTest {
+
     @Autowired
-    private QuestionRepository questionRepository;
+    AdminRepository adminRepository;
 
     @Test
-    @DisplayName("문의사항 삽입 테스트1")
+    @DisplayName("관리자 삽입 테스트1")
     public void InsertTest(){
-        Question question = Question.builder().
-                classify("테스트").
-                title("테스트").
-                content("테스트").
-                answer(true).
+        Admin admin = Admin.builder().
+                password("테스트").
                 build();
-        Question temp = questionRepository.save(question);
+        Admin temp = adminRepository.save(admin);
         System.out.println(temp.toString());
     }
+
+
 
 }
