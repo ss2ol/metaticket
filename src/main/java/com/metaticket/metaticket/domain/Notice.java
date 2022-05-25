@@ -38,4 +38,10 @@ public class Notice {
     @Column
     private LocalDateTime reg_date;
 
+    public void update(String classify, String title, String content) {
+        setClassify(classify);
+        setContent(content);
+        setTitle(title);
+    }
+
 }

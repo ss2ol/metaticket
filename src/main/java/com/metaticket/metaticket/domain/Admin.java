@@ -28,4 +28,7 @@ public class Admin {
     @Column
     private LocalDateTime mod_date;
 
+    public void update(String password) {
+        setPassword(password);
+    }
 }

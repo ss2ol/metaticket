@@ -21,12 +21,12 @@ class NoticeRepositoryTest {
     private NoticeRepository noticeRepository;
 
     @Autowired
-    private AdminRepository adminRepository;
+   private AdminRepository adminRepository;
 
     @Test
     @DisplayName("공시사항 삽입 테스트1")
     public void InsertTest(){
-        Admin admin = adminRepository.findById(1L).get();
+       Admin admin = adminRepository.findById(9L).get();
 
         Notice notice = Notice.builder().
                 admin(admin).
@@ -39,5 +39,50 @@ class NoticeRepositoryTest {
         System.out.println(temp.toString());
     }
 
+    @Test
+    @DisplayName("공지사항 수정 테스트")
+    public void updateTest() throws Exception{
+
+        Notice findNotice = noticeRepository.findById(2L).get();
+        findNotice.update("테스트1","테스트2","테스트3");
+        Notice updateNotice = noticeRepository.save(findNotice);
+
+        assertEquals(updateNotice.getClassify(),"테스트1");
+        assertEquals(updateNotice.getTitle(),"테스트2");
+        assertEquals(updateNotice.getContent(), "테스트3");
+    }
+//
+//    @Test
+//    @DisplayName("공지사항 삭제 테스트")
+//    public void deleteTest(){
+//        Optional<Admin> admin = adminRepository.findById(6L);
+//        Assert.assertTrue(admin.isPresent());
+//
+//        admin.ifPresent(selectAdmin->{
+//            adminRepository.delete(selectAdmin);
+//        });
+//
+//        Optional<Admin> deletedAdmin = adminRepository.findById(6L);
+//
+//        Assert.assertFalse(deletedAdmin.isPresent());
+//
+//    }
+//
+//
+//    @Test
+//    @DisplayName("공지사항 조회 테스트")
+//    public void selectTest(){
+//        Long id = 7L;
+//        Optional<Admin> result = adminRepository.findById(id);
+//
+//        if(result.isPresent()){
+//            Admin admin = result.get();
+//            assertEquals(admin.getId(),7L);
+//
+//            System.out.println(admin.toString());
+//        }
+//
+//    }
 
 }
+
