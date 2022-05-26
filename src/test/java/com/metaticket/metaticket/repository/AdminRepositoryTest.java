@@ -1,8 +1,6 @@
 package com.metaticket.metaticket.repository;
 
 import com.metaticket.metaticket.domain.Admin;
-import com.metaticket.metaticket.domain.Question;
-import org.hibernate.annotations.CreationTimestamp;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,7 +34,7 @@ class AdminRepositoryTest {
     @DisplayName("관리자 수정 테스트")
     public void updateTest() throws Exception{
 
-        Admin findAdmin = adminRepository.findById(7L).get();
+        Admin findAdmin = adminRepository.findById(1L).get();
 
         findAdmin.update("12345");
         Admin updatedAdmin = adminRepository.save(findAdmin);
@@ -68,12 +65,12 @@ class AdminRepositoryTest {
     @Test
     @DisplayName("관리자 조회 테스트")
     public void selectTest(){
-        Long id = 7L;
+        Long id = 2L;
         Optional<Admin> result = adminRepository.findById(id);
 
         if(result.isPresent()){
             Admin admin = result.get();
-            assertEquals(admin.getId(),7L);
+            assertEquals(admin.getId(),2L);
 
             System.out.println(admin.toString());
         }

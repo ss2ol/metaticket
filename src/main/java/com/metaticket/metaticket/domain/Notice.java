@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "Notices")
 @Data
 @Builder
 @NoArgsConstructor
@@ -21,7 +21,7 @@ public class Notice {
     @Column(name="notice_id")
     private Long id;
 
-    @ManyToOne(targetEntity = Admin.class , fetch = FetchType.LAZY) //   fk설정
+    @ManyToOne(fetch = FetchType.LAZY) //   fk설정
     @JoinColumn(name = "admin_id")
     private Admin admin;
 

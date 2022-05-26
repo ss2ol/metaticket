@@ -2,13 +2,12 @@ package com.metaticket.metaticket.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name= "Questions")
 @Data
 @Builder
 @NoArgsConstructor
@@ -43,5 +42,11 @@ public class Question {
     @Column
     private LocalDateTime ans_date;
 
+
+    public void update(String classify, String title, String content) {
+        setClassify(classify);
+        setContent(content);
+        setTitle(title);
+    }
 
 }
